@@ -6,15 +6,12 @@ const rootdir = require('../util/path');
 
 const router = express.Router();
 
+const addProductController = require("../controllers/product.js");
+
 router.use(bodyParser.urlencoded({extended:false}));
 
-router.use('/add-product',(req,res,next)=>{
-    res.sendFile(path.join(rootdir,'views','addProduct.html'));
-});
+router.use('/add-product',addProductController.getAddProduct);
 
-router.post('/product',(req,res,next)=>{
-    console.log(req.body);
-    res.redirect('/');
-});
+router.post('/product',addProductController.getProduct);
 
 module.exports = router;
