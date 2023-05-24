@@ -12,6 +12,8 @@ router.use(bodyParser.urlencoded({extended:false}));
 
 router.use('/add-product',addProductController.getAddProduct);
 
-router.post('/product',addProductController.getProduct);
+router.post('/product',addProductController.postAddProduct);
+
+router.use('/fghj',addProductController.getProduct);
 
 module.exports = router;
