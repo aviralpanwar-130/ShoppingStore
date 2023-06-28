@@ -8,13 +8,12 @@ exports.getAddProduct = (req,res,next)=>{
 }
 
 exports.postAddProduct = (req,res,next)=>{
-    console.log(req.body.title);
     const product = new Product(req.body.title);
     product.save();
     res.redirect('/');
 }
 
 exports.getProduct = (req,res,next)=>{
-    console.log(Product.fetchAll());
+    Product.fetchAll();
     res.redirect('/');
 }

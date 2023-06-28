@@ -7,14 +7,14 @@ const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const contactRoutes = require('./routes/contact');
 const rootdir = require('./util/path');
+const errorRoutes = require('./routes/404');
 
 app.use(express.static(path.join(__dirname,'public')));
 app.use(adminRoutes);
 app.use(shopRoutes);
 app.use(contactRoutes);
-app.use((req,res,next)=>{
-    res.status(404).sendFile(path.join(rootdir,'views','404.html'));
-})
+app.use(errorRoutes);
+
 
 
 app.listen(3000);
